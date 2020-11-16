@@ -20,7 +20,7 @@ Make your screenshot unit tests
 
 
 
-Install fastlane: (unsure about this.  Don’t remember how I installed)
+Install fastlane: 
 brew update && brew install ruby
 xcode-select --install
 sudo gem install fastlane -NV
