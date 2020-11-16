@@ -7,14 +7,19 @@ File ▸ New ▸ Target. Within the iOS tab’s Test section, select iOS UI Test
 
 Put [this file](https://github.com/awaran/AutoScreenshotAccessibility/blob/main/SnapshotHelper.swift) in your unit test group.  hit “copy items if needed” and “create groups” then hit finish
 
-Put this in your init
 Make your screenshot unit tests
-  Create a global app //var app = XCUIApplication()
-  When you create the app, setup the snapshot using setupSnapshot(app) before you launch
-    app = XCUIApplication()
-    setupSnapshot(app)
-    app.launch()
 
+When you create an app like so
+'''
+var app = XCUIApplication()
+'''  
+
+setup the snapshot using setupSnapshot(app) before you launch
+'''
+app = XCUIApplication()
+setupSnapshot(app)
+app.launch()
+'''
 	Whenever you want to create a snapshot use snapshot(“unique id in this location 1”)
 		snapshot("11UserEntries")
     This id will be used to create the filename of the photo and possibly modify the name of the google slide it creates.
