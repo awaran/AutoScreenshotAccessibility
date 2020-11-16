@@ -24,10 +24,10 @@ app.launch()
 
 
 Whenever you want to create a snapshot use snapshot(“unique id in this location 1”).  In the following code, the Unique id is "11UserEntries".  Please replace "11UserEntries" with your own unique Identifier.  
-<sub><sup>*Details: This id will be used to create the filename of the photo and possibly modify the name of the google slide it creates.  The photo filename is device + language + uniqueId + last word in launch arg(it's for different accessibility screenshoting)*</sup></sub>
 ```swift
 snapshot("11UserEntries")
 ```
+<sub><sup>*Details: This id will be used to create the filename of the photo and possibly modify the name of the google slide it creates.  The photo filename is device + language + uniqueId + last word in launch arg(it's for different accessibility screenshoting)*</sup></sub>
 
 **ProTip: record your test, and put in sleep(10) where you want your screenshots to go.  Run your unit test normally.  When you see the abnormally long wait, that will be where your screenshot will happen**
 
