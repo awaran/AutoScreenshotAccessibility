@@ -10,16 +10,18 @@ Put [this file](https://github.com/awaran/AutoScreenshotAccessibility/blob/main/
 Make your screenshot unit tests
 
 When you create an app like so
-'''swift
+
+```swift
 var app = XCUIApplication()
-'''  
+```
+
 
 setup the snapshot using setupSnapshot(app) before you launch
-'''Swift
+```swift
 app = XCUIApplication()
 setupSnapshot(app)
 app.launch()
-'''
+```
 	Whenever you want to create a snapshot use snapshot(“unique id in this location 1”)
 		snapshot("11UserEntries")
     This id will be used to create the filename of the photo and possibly modify the name of the google slide it creates.
