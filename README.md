@@ -22,6 +22,8 @@ app = XCUIApplication()
 setupSnapshot(app)
 app.launch()
 ```
+
+
 	Whenever you want to create a snapshot use snapshot(“unique id in this location 1”)
 		snapshot("11UserEntries")
     This id will be used to create the filename of the photo and possibly modify the name of the google slide it creates.
