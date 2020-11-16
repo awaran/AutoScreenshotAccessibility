@@ -20,7 +20,6 @@ Make your screenshot unit tests
 
 
 
-Reference: https://moma.corp.google.com/search?q=install%20fastlane, distribute iOS app -> install fastlane
 Install fastlane: (unsure about this.  Don’t remember how I installed)
 brew update && brew install ruby
 xcode-select --install
@@ -51,3 +50,9 @@ Type this into your terminal
 bundle exec fastlane screenshot
 
 //TODO finish python script for making google slides and put in instructions / script here
+
+
+
+References:
+installing fastlane
+https://moma.corp.google.com/search?q=install%20fastlane, distribute iOS app -> install fastlane
