@@ -2,8 +2,11 @@
 
 
 Open X-Code
+
 File ▸ New ▸ Target. Within the iOS tab’s Test section, select iOS UI Testing Bundle then click Next
-Put this file in your unit test group.  hit “copy items if needed” and “create groups” then hit finish
+
+Put [this file](https://github.com/awaran/AutoScreenshotAccessibility/blob/main/SnapshotHelper.swift) in your unit test group.  hit “copy items if needed” and “create groups” then hit finish
+
 Put this in your init
 Make your screenshot unit tests
   Create a global app //var app = XCUIApplication()
