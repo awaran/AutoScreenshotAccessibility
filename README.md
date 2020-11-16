@@ -10,12 +10,12 @@ Put [this file](https://github.com/awaran/AutoScreenshotAccessibility/blob/main/
 Make your screenshot unit tests
 
 When you create an app like so
-'''
+'''swift
 var app = XCUIApplication()
 '''  
 
 setup the snapshot using setupSnapshot(app) before you launch
-'''
+'''Swift
 app = XCUIApplication()
 setupSnapshot(app)
 app.launch()
