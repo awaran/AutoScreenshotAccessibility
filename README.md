@@ -73,7 +73,7 @@ or use [Suggested Snapfile](https://github.com/awaran/AutoScreenshotAccessibilit
 ## Run Snapshot creation
 Type this into your terminal when ready to get snapshots
 ```
-bundle exec fastlane screenshot
+bundle exec fastlane screenshots
 ```
 
 //TODO finish python script for making google slides and put in instructions / script here
