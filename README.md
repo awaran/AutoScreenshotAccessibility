@@ -1,5 +1,8 @@
 # AutoScreenshotAccessibility
 
+## Setup your simulators
+The simulators that fastlane use are the ones from xcode.  They start with the same state you left them on.
+
 ## Create Unit test
 
 Open X-Code
