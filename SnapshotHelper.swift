@@ -3,7 +3,7 @@
 //  Example
 //
 //  Created by Felix Krause on 10/8/15.
-//  Modified by RJ
+//
 
 // -----------------------------------------------------
 // IMPORTANT: When modifying this file, make sure to
@@ -170,20 +170,29 @@ open class Snapshot: NSObject {
             #else
             let image = screenshot.image
             #endif
+
+            guard var simulator = ProcessInfo().environment["SIMULATOR_DEVICE_NAME"], let screenshotsDir = screenshotsDirectory else { return }
+// Modification start: Get launch args to add to the end of each photo file name.
             var launchArgs = ""
             if let largs = self.app?.launchArguments.last {
               launchArgs = largs
             }
-            guard var simulator = ProcessInfo().environment["SIMULATOR_DEVICE_NAME"], let screenshotsDir = screenshotsDirectory else { return }
-
+// Modification end.
             do {
                 // The simulator name contains "Clone X of " inside the screenshot file when running parallelized UI Tests on concurrent devices
                 let regex = try NSRegularExpression(pattern: "Clone [0-9]+ of ")
                 let range = NSRange(location: 0, length: simulator.count)
                 simulator = regex.stringByReplacingMatches(in: simulator, range: range, withTemplate: "")
 
-                let path = screenshotsDir.appendingPathComponent("\(simulator)-\(name)-\(launchArgs).png")
-                try image.pngData()?.write(to: path, options: .atomic)
+// Modification of line: add launch args to the end of the photo file name
+              let path = screenshotsDir.appendingPathComponent("\(simulator)-\(name)-\(launchArgs).png")
+              // let path = screenshotsDir.appendingPathComponent("\(simulator)-\(name).png")
+              
+                #if swift(<5.0)
+                    UIImagePNGRepresentation(image)?.write(to: path, options: .atomic)
+                #else
+                    try image.pngData()?.write(to: path, options: .atomic)
+                #endif
             } catch let error {
                 NSLog("Problem writing screenshot: \(name) to \(screenshotsDir)/\(simulator)-\(name).png")
                 NSLog(error.localizedDescription)
@@ -226,7 +235,7 @@ open class Snapshot: NSObject {
         #if os(OSX)
             let homeDir = URL(fileURLWithPath: NSHomeDirectory())
             return homeDir.appendingPathComponent(cachePath)
-        #elseif arch(i386) || arch(x86_64)
+        #elseif arch(i386) || arch(x86_64) || arch(arm64)
             guard let simulatorHostHome = ProcessInfo().environment["SIMULATOR_HOST_HOME"] else {
                 throw SnapshotError.cannotFindSimulatorHomeDirectory
             }
@@ -301,4 +310,4 @@ private extension CGFloat {
 
 // Please don't remove the lines below
 // They are used to detect outdated configuration files
-// SnapshotHelperVersion [1.24]
+// SnapshotHelperVersion [1.25]
