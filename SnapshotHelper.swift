@@ -172,20 +172,23 @@ open class Snapshot: NSObject {
             #endif
 
             guard var simulator = ProcessInfo().environment["SIMULATOR_DEVICE_NAME"], let screenshotsDir = screenshotsDirectory else { return }
-// Modification start: Get launch args to add to the end of each photo file name.
+
+            // MARK: Modification start: Get launch args to add to the end of each photo file name.
             var launchArgs = ""
             if let largs = self.app?.launchArguments.last {
               launchArgs = largs
             }
-// Modification end.
+            // MARK: Modification end.
+
             do {
                 // The simulator name contains "Clone X of " inside the screenshot file when running parallelized UI Tests on concurrent devices
                 let regex = try NSRegularExpression(pattern: "Clone [0-9]+ of ")
                 let range = NSRange(location: 0, length: simulator.count)
                 simulator = regex.stringByReplacingMatches(in: simulator, range: range, withTemplate: "")
 
-// Modification of line: add launch args to the end of the photo file name
+              // MARK: Modification of line: add launch args to the end of the photo file name.
               let path = screenshotsDir.appendingPathComponent("\(simulator)-\(name)-\(launchArgs).png")
+              // MARK: What the line use to look like.  Need this to help future debugging
               // let path = screenshotsDir.appendingPathComponent("\(simulator)-\(name).png")
               
                 #if swift(<5.0)
