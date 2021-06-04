@@ -1,5 +1,16 @@
 # AutoScreenshotAccessibility
 
+# Error Help
+If you get something like
+
+"fastlane finished with errors"
+[!] Please update your Snapshot Helper file using `fastlane snapshot update`
+
+run "fastlane snapshot update" in terminal.  This will give you a new "SnapshotHelper.swift" file with the proper version info at the bottom to match with your current version of fastlane
+After you do that, you will need to compare the original "SnapshotHelper.swift" file with the new one and migrate the modifications.  The only modification that is in the original "SnapshotHelper.swift" file is adding the launch args to the end of a screenshot name.  This is so we don't override images for different accessability setting.  (I.E medium, large, extra large text)
+
+# Install
+
 ## Setup your simulators
 The simulators that fastlane use are the ones from xcode.  They start with the same state you left them on.
 
